@@ -4,12 +4,14 @@ var bodyParser = require('body-parser');
 
 
 ///require and connect to the controllers
-var qControllers = ('../controllers/qControllers.js');
+var qControllers = require('../controllers/qControllers.js');
 
 var apiKey= require('../env/api_env.js');
 
 var request = require('request');
 var db = require('../models');
+
+// var rootDirectory = process.cwd();
 
 // cannot move homepage route AND res.send'f'ile????
 // router.get('/', function homepage (req, res) {
@@ -27,30 +29,38 @@ var db = require('../models');
 // 		res.json(DBquotes);
 // 	});
 // });
+// router.get('/', function homepage (req, res) {
+// 	// prcess.cwd() gives me the root and add the 
+//   res.sendfile(process.cwd()+'/views/index.html');
+// });
+router.route('/')
+	.get(qControllers.homepage);
 
  router.route('/api/quotes')
  	.get(qControllers.quotes_index);
+
+////////////////////////////////////////////
 
 // i request with node instead of ajax calling on front end
 //cause i can use my apiKey
  router.get('/api/quotes/getRandom', function getRandom(req, res){
  	request('https://quotes.rest/quote/random.json?api_key='+apiKey, function(err, response, body){
- 		
- 		res.json(body.contents.quote);
+ 		///this send stuff to the front end...
+ 		res.json(body);
 
  	});
- 	
  });
+ ////////////////////////////////////////////////////
  
 
-	router.get('/api/quotes', function quotes_index(req,res){
-	db.Quote.find({}, function (err,DBquotes){
-		if (err){
-			console.log(err);
-		}
-		res.json(DBquotes);
-	});
-});
+// 	router.get('/api/quotes', function quotes_index(req,res){
+// 	db.Quote.find({}, function (err,DBquotes){
+// 		if (err){
+// 			console.log(err);
+// 		}
+// 		res.json(DBquotes);
+// 	});
+// });
 
 ///// findONE Route WORKING +++++++++++++++++++++++++++++++
 router.get('/api/quotes/:id', function quotes_FindOne(req,res){

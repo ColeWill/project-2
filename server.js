@@ -24,17 +24,13 @@ app.use(express.static(__dirname + '/public'));//serve static files from the pub
 // });
 
 // define a root route: localhost:3000/
-app.get('/', function homepage (req, res) {
-  res.sendfile(__dirname + '/views/index.html');
-});
+// app.get('/', function homepage (req, res) {
+//   res.sendfile(__dirname + '/views/index.html');
+// });
 
 
-// var apiKey= require('./env/api_env.js');
-
-// var start = 'http://google.com',
-// 	next = '/images/';
-
-// 	var url = start + next + apiKey;
+console.log(process.cwd());
+console.log(__dirname);
 
 
 //require routes here move routes out
