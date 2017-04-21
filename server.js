@@ -5,10 +5,11 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended:true}));//we use express to parse url query strings that come in as requests
 app.use(bodyParser.json());// we use express to parse  json obect requests
  
- var db = require('./models'); // pull in my models
+ 
 /************
  * DATABASE *
  ************/
+app.use(bodyParser.json());
 app.use(express.static('public'));
 
 
@@ -37,49 +38,18 @@ var start = 'http://google.com',
 console.log(apiKey);
 console.log(url);
 
+//require routes here move routes out
+// ........................................Routes
+var routes = require ('./config/routes');
+app.use(routes);
+// ........................................Routes
 
 
-/////INDEX ROUTE WORKING +++++++++++++++++++++++++++++++
-app.get('/api/quotes', function quotes_index(req,res){
-	db.Quote.find({}, function (err,DBquotes){
-		if (err){
-			console.log(err);
-		}
-		res.json(DBquotes);
-	});
-});
 
-///// findONE Route WORKING +++++++++++++++++++++++++++++++
-app.get('/api/quotes/:id', function quotes_FindOne(req,res){
-		
-	db.Quote.findOne({_id: req.params.id}, function(err, DBquotes){
-		res.json(DBquotes);
-	});
-});
 
-//post a new Q //WORKING creates a new quote////////// working
-app.post('/api/quotes', function postQ(req,res){
-        //res.json("JSON req.body._id:   "+ req.body._id);
-  var postQ = new db.Quote
-    ({
-    _id: req.body._id,
-    quote: req.body.quote,
-    author: req.body.author
-      });
-      
-    postQ.save(function(err, q){
-          res.json(q);
-  });
-  
-});
 
-///////////////// DELETE /////////////////////// Working
-app.delete('/api/quotes/:id', function(req,res){
-	var deleteID = req.params.id;
-	db.Quote.findOneAndRemove({_id: deleteID}, function(err, cut){
-		res.json(cut+" was taken out");
-	});
-});
+
+
 
 
 app.listen(3000, function(){
