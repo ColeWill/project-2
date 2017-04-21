@@ -1,4 +1,4 @@
 env/api_env.js
 **node_modules/
 key.js
-
+.env

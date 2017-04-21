@@ -10,7 +10,8 @@ $(document).ready(function(){
 var randoQ;
 	$('#rando').on("click", function(){
 		console.log("clike");
-		var randoQ = $.get('https://quotes.rest/quote/random.json?api_key=')
+		var randoQ = $.get('/api/quotes/getRandom');
+		//$.get('https://quotes.rest/quote/random.json?api_key=')
 			.done(function(data){
 				console.log(data);
 				$('.qbox').append(data.contents.quote);

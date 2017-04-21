@@ -4,13 +4,14 @@ var bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({extended:true}));//we use express to parse url query strings that come in as requests
 app.use(bodyParser.json());// we use express to parse  json obect requests
- 
- 
+
+app.use(bodyParser.json());
+app.use(express.static('public'));
+
 /************
  * DATABASE *
  ************/
-app.use(bodyParser.json());
-app.use(express.static('public'));
+ require('dotenv').config();
 
 
 
@@ -28,15 +29,13 @@ app.get('/', function homepage (req, res) {
 });
 
 
-var apiKey= require('./env/api_env.js');
+// var apiKey= require('./env/api_env.js');
 
-var start = 'http://google.com',
-	next = '/images/';
+// var start = 'http://google.com',
+// 	next = '/images/';
 
-	var url = start + next + apiKey;
+// 	var url = start + next + apiKey;
 
-console.log(apiKey);
-console.log(url);
 
 //require routes here move routes out
 // ........................................Routes
