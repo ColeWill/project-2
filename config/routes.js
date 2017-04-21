@@ -1,15 +1,15 @@
 var express = require ('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
-
+var db = require('../models');
 
 ///require and connect to the controllers
 var qControllers = require('../controllers/qControllers.js');
 
-var apiKey= require('../env/api_env.js');
+// var apiKey= require('../env/api_env.js');
 
-var request = require('request');
-var db = require('../models');
+// var request = require('request');
+// var db = require('../models');
 
 // var rootDirectory = process.cwd();
 
@@ -33,34 +33,26 @@ var db = require('../models');
 // 	// prcess.cwd() gives me the root and add the 
 //   res.sendfile(process.cwd()+'/views/index.html');
 // });
+
+// homepage
 router.route('/')
 	.get(qControllers.homepage);
 
+
+// index
  router.route('/api/quotes')
  	.get(qControllers.quotes_index);
 
+
+// TheySaidSo.com API
 ////////////////////////////////////////////
 
-// i request with node instead of ajax calling on front end
-//cause i can use my apiKey
- router.get('/api/quotes/getRandom', function getRandom(req, res){
- 	request('https://quotes.rest/quote/random.json?api_key='+apiKey, function(err, response, body){
- 		///this send stuff to the front end...
- 		res.json(body);
+router.route('/api/quotes/getRandom')
+	.get(qControllers.getRandom);
 
- 	});
- });
- ////////////////////////////////////////////////////
+////////////////////////////////////////////////////
  
 
-// 	router.get('/api/quotes', function quotes_index(req,res){
-// 	db.Quote.find({}, function (err,DBquotes){
-// 		if (err){
-// 			console.log(err);
-// 		}
-// 		res.json(DBquotes);
-// 	});
-// });
 
 ///// findONE Route WORKING +++++++++++++++++++++++++++++++
 router.get('/api/quotes/:id', function quotes_FindOne(req,res){
@@ -71,7 +63,7 @@ router.get('/api/quotes/:id', function quotes_FindOne(req,res){
 });
 ///// +++++++++++++++++++++++++++++++++++++++++++++++++++
 
-//post a new Q //WORKING creates a new quote////////// working
+ //WORKING creates a new quote////////// working
 router.post('/api/quotes', function postQ(req,res){
         //res.json("JSON req.body._id:   "+ req.body._id);
   var postQ = new db.Quote
@@ -85,6 +77,9 @@ router.post('/api/quotes', function postQ(req,res){
           res.json(q);
   });
 });
+
+// router.route('api/quotes')    still broken
+// 	.post(qControllers.postQ);
 ////////////////////////////////////////////////////////
 
 ///////////////// DELETE /////////////////////// Working

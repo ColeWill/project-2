@@ -1,6 +1,11 @@
 var db = require('../models'); // CONNECT TO MONGOOSE !!! + pull in my models
 //change ./models to ../models because up one level
 
+var apiKey= require('../env/api_env.js');
+
+var request = require('request');
+
+var bodyParser = require('body-parser');
 
 
 // homepage
@@ -20,11 +25,46 @@ function quotes_index(req,res){
 		res.json(DBquotes);
 	});
 }
+
+
+// get Random Quote From the API
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// i request with node instead of ajax calling on front end
+//cause i can use my apiKey
+function getRandom(req, res){
+ 	request('https://quotes.rest/quote/random.json?api_key='+apiKey, function(err, response, body){
+ 		///this send stuff to the front end...
+ 		var parsedQ  = JSON.parse(body);
+ 		var author = parsedQ.contents.author;
+ 		var quote = parsedQ.contents.quote;
+ 		res.json(author + " "+ quote );
+ 	});
+
+}
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+// function postQ(req,res){
+// 	res.json("before?");
+//         //res.json("JSON req.body._id:   "+ req.body._id);
+//   var postQ = new db.Quote
+//     ({
+//     _id: req.body._id,
+//     quote: req.body.quote,
+//     author: req.body.author
+//       });
+      
+//     postQ.save(function(err, q){
+//           res.json(q);
+//   });
+// }
+
+
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//module.exports.deleteQ = deleteQ;
+// module.exports.postQ = postQ;
 
 module.exports.homepage = homepage;
 module.exports.quotes_index = quotes_index;
+module.exports.getRandom = getRandom;
