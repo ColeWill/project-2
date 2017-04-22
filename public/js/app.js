@@ -10,12 +10,12 @@ $(document).ready(function(){
 var randoQ;
 	$('#rando').on("click", function(){
 		console.log("clike");
-		var randoQ = $.get('/api/quotes/getRandom');
-		
+		var randoQ = $.get('/api/quotes/getRandom')
+		// go into the backend and tell it to request from quotes api
 			.done(function(data){
-				console.log(data);
-				$('.qbox').append(data.contents.quote);
-				$('.abox').append(data.contents.author);
+				console.log(data); 
+				$('.qbox').append(quote);
+				$('.abox').append(author);
 			});
 	});
 
@@ -24,6 +24,7 @@ var randoQ;
 		var q =  $('.qbox').text();
 		var a =  $('.abox').text();
 		
+		///saves quotes successfully to the db
 		$.ajax({
 		
 			url:'http://localhost:3000/api/quotes',

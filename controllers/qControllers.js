@@ -36,9 +36,14 @@ function getRandom(req, res){
  	request('https://quotes.rest/quote/random.json?api_key='+apiKey, function(err, response, body){
  		///this send stuff to the front end...
  		var parsedQ  = JSON.parse(body);
- 		var author = parsedQ.contents.author;
- 		var quote = parsedQ.contents.quote;
- 		res.json(author + " "+ quote );
+ 		
+		var apiObject = {
+ 			quote: parsedQ.contents.quote,
+ 			author: parsedQ.contents.author
+ 		};
+
+ 		res.send(apiObject);
+ 		
  	});
 
 }
