@@ -3,12 +3,10 @@
 #Timeline
 4.20 1.45pm seed file is working and connecting to mongo db
 ##![Trello](https://trello.com/b/hpwPDMRY/project-2)
-##![drawing](phttp://imgur.com/rOkzpHl)
-
-
-##![wireframe](http://i.imgur.com/aAySVF4.png)
-##![wireframe](http://i.imgur.com/aAySVF4.png)
-##![WireFrame](http://i.imgur.com/rOkzpHl.jpg)
+##![drawing1](http://i.imgur.com/nKXrjdu.jpg?1)
+##![drawing 2](http://i.imgur.com/rOkzpHl.jpg)
+##![wireframe1](http://i.imgur.com/aAySVF4.png)
+##![wireframe2](http://i.imgur.com/0u3ugs8.png)
 ##![prototype](http://i.imgur.com/pC9f82x.png)
 
 My App
