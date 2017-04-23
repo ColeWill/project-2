@@ -5,8 +5,11 @@
 ##![Trello](https://trello.com/b/hpwPDMRY/project-2)
 ##![drawing](phttp://imgur.com/rOkzpHl)
 
-##![WireFrame]
-##![prototype]
+
+##![wireframe](http://i.imgur.com/aAySVF4.png)
+##![wireframe](http://i.imgur.com/aAySVF4.png)
+##![WireFrame](http://i.imgur.com/rOkzpHl.jpg)
+##![prototype](http://i.imgur.com/pC9f82x.png)
 
 My App
 
