@@ -2,9 +2,7 @@ var db = require('../models'); // CONNECT TO MONGOOSE !!! + pull in my models
 //change ./models to ../models because up one level
 
 var apiKey= require('../env/api_env.js');
-
 var request = require('request');
-
 var bodyParser = require('body-parser');
 
 
@@ -33,6 +31,7 @@ function quotes_index(req,res){
 // i request with node instead of ajax calling on front end
 //cause i can use my apiKey
 function getRandom(req, res){
+
  	request('https://quotes.rest/quote/random.json?api_key='+apiKey, function(err, response, body){
  		///this send stuff to the front end...
  		var parsedQ  = JSON.parse(body);
@@ -82,10 +81,10 @@ function postedQ(req,res){
 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-module.exports.deleteQ = deleteQ;
-module.exports.postedQ = postedQ;
+// module.exports.postedQ = postedQ;
+// module.exports.homepage = homepage;
 
+module.exports.deleteQ = deleteQ;
 module.exports.quotes_FindOne = quotes_FindOne;
-module.exports.homepage = homepage;
 module.exports.quotes_index = quotes_index;
 module.exports.getRandom = getRandom;

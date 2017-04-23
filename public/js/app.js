@@ -13,7 +13,7 @@ var randoQ;
 		var randoQ = $.get('/api/quotes/getRandom')
 		// go into the backend and tell it to request from quotes api
 			.done(function(data){
-				console.log(data); 
+				// console.log(data); 
 				$('.qbox').append(data.quote);
 				$('.abox').append(data.author);
 			});
@@ -33,10 +33,10 @@ var randoQ;
 			data: { quote: q, author: a},
 			ContentType:"application/json"
             }).done(function(res){
-			console.log(res);
+			// console.log("Qoutes in DataBase:" + res);
 			//get all quotes from db
 			$.get('/api/quotes', function(res){
-				console.log(res);
+				console.log("Qoutes in DataBase:"+ res);
 				res.forEach(function(res){
 					$(".saveBox").append(res);
 				});

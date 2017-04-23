@@ -1,53 +1,55 @@
-var express = require ('express');
+var express = require('express');
 var router = express.Router();
+// Parses information from POST
 var bodyParser = require('body-parser');
+// Used to manipulate POST methods
+var methodOverride = require('method-override');
+var passport = require("passport");
+var usersController = require('../controllers/users');
+var staticsController = require('../controllers/statics');
 var db = require('../models');
-
-///require and connect to the controllers
 var qControllers = require('../controllers/qControllers.js');
 
-// var apiKey= require('../env/api_env.js');
 
-// var request = require('request');
-// var db = require('../models');
+function authenticatedUser(req, res, next) {
+  // If the user is authenticated, then we continue the execution
+  if (req.isAuthenticated()) return next();
 
-// var rootDirectory = process.cwd();
-
-// cannot move homepage route AND res.send'f'ile????
-// router.get('/', function homepage (req, res) {
-//   res.sendfile(path.join(__dirname, '../views', 'index.html'));
-// });
-// res.sendFile(path.join(__dirname, '../public', 'index1.html'));
-
-
-
-
+  // Otherwise the request is always redirected to the home page
+  res.redirect('/');
+}
 // homepage
 router.route('/')
-	.get(qControllers.homepage);
+  .get(staticsController.home);
 
+////////////////////////////////////////////////// PASSPORT
+router.route('/signup')
+  .get(usersController.getSignup)
+  .post(usersController.postSignup);
 
-// index -- get all
- router.route('/api/quotes')
- 	.get(qControllers.quotes_index);
+router.route('/login')
+  .get(usersController.getLogin)
+  .post(usersController.postLogin);
 
+router.route("/logout")
+  .get(usersController.getLogout);
 
-// TheySaidSo.com API
+router.route("/secret")
+  .get(authenticatedUser, usersController.secret);
+
+///>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> QUOTES
+
+// TheySaidSo.com API -- Get a random quote
 ////////////////////////////////////////////
-
 router.route('/api/quotes/getRandom')
-	.get(qControllers.getRandom);
+  .get(qControllers.getRandom);
 
-// findOne
-////////////////////////////////////////////////////
- router.route('/api/quotes/:id')
-	.get(qControllers.quotes_FindOne);
-	
- 
 
-///// +++++++++++++++++++++++++++++++++++++++++++++++++++
+  // index -- get all//////////////////
+ router.route('/api/quotes')
+  .get(qControllers.quotes_index);
 
- //WORKING creates a new quote////////// working
+//WORKING creates a new quote  +++++++++++++++  working
 router.post('/api/quotes', function postQ(req,res){
         res.json("JSON req.body._id:   "+ req.body._id);
   var postQ = new db.Quote
@@ -62,12 +64,19 @@ router.post('/api/quotes', function postQ(req,res){
   });
 });
 
+// findOne
+////////////////////////////////////////////////////
+ router.route('/api/quotes/:id')
+  .get(qControllers.quotes_FindOne);
 
-////////////////////////////////////////////////////////
-
-///////////////// DELETE /////////////////////// Working
+  //-------------- DELETE ----------------------- Working
 router.route('/api/quotes/:id')
-	.delete(qControllers.deleteQ);
+  .delete(qControllers.deleteQ);
+
+
+// // index -- get all
+//  router.route('/api/quotes')
+//   .get(qControllers.quotes_index);
 
 
 
