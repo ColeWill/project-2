@@ -3,7 +3,8 @@
 #Timeline
 4.20 1.45pm seed file is working and connecting to mongo db
 ##![Trello](https://trello.com/b/hpwPDMRY/project-2)
-##![wireframe](./public/images/Proj_2_Wire1.png)
+##![wireframe](project-2/public/images/Proj_2_Wire1.png)
+
 ##![WireFrame]
 ##![prototype]
 
@@ -28,8 +29,9 @@ Express allows user authentication (login/logout) functionality.
 
 Challenges
 
-Passport is just as complicated as a fullstack app.  It requires setting up a database, RESTful routes, connecting with mongoose, running JavaScript files with Node.js, several Node packages unique to itself as well.  
-	Integrating it into my working fullstack app was very difficult for me and took almost 10 hours to complete.  
+Passport is basically a fullstack app on its own.  It requires setting up a database, RESTful routes, connecting with mongoose, running JavaScript files with Node.js, and several Node packages unique to itself as well.  
+	Integrating it into my working fullstack app was very difficult for me and took almost 10 hours to complete.
+I still I need to spend more time deconstructiong it and getting more familiar with its ins and outs.  
 
 The Fun Parts
 
@@ -40,4 +42,4 @@ Successfully connecting routes on the backend, linking up pages, installing and 
 
 Unsolved Problems
 
-Saving session data, so that individual users have their own collection in the Database.  This would allow them to have a unique collection of qoutes 
+Saving session data, so that individual users have their own collection in the Database.  This would allow them to have a unique collection of qoutes. 
