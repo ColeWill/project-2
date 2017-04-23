@@ -29,8 +29,7 @@ app.use(express.static(__dirname + '/public'));//serve static files from the pub
 // });
 
 
-console.log(process.cwd());
-console.log(__dirname);
+
 
 
 //require routes here move routes out

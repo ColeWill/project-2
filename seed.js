@@ -3,27 +3,27 @@ var db = require('./models');
 var quotesArray = [];
 
 quotesArray.push({
-             	_id: 1,
-              quote: 'this is an inspirational quote',
-              author: 'cole'
+             	
+              quote: 'Pain is simply information entering the Body...',
+              author: 'Jerry Seinfeld'
               
             });
 quotesArray.push({
-              _id: 2,
-              quote: 'the next best quote by me',
-              author: 'cw'
+              
+              quote: 'Y.O.L.O.',
+              author: 'UNKNOWN'
               
             });
 quotesArray.push({
-             _id: 3,
-              quote: 'i wish i had more direction on this project',
-              author: 'cwill'
+             
+              quote: "Don't Quote me on this...",
+              author: 'UNKONW'
               
             });
 quotesArray.push({
-              _id: 4,
-              quote: 'it might rain today...',
-              author: 'the news'
+             
+              quote: 'Computers are not very Smart...',
+              author: 'C. Williams'
               
             });
 

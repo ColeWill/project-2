@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 
 var QuoteSchema = new Schema({
-			_id: String,
+			
              quote: String,
               author: String
 });

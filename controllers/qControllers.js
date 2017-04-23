@@ -49,27 +49,43 @@ function getRandom(req, res){
 }
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+function quotes_FindOne(req,res){
+		
+	db.Quote.findOne({_id: req.params.id}, function(err, DBquotes){
+		console.log(DBquotes);
+		res.json(DBquotes);
+	});
+}
 
-// function postQ(req,res){
-// 	res.json("before?");
-//         //res.json("JSON req.body._id:   "+ req.body._id);
-//   var postQ = new db.Quote
-//     ({
-//     _id: req.body._id,
-//     quote: req.body.quote,
-//     author: req.body.author
-//       });
+
+function deleteQ(req,res){
+	var deleteID = req.params.id;
+	db.Quote.findOneAndRemove({_id: deleteID}, function(err, cut){
+		res.json(cut+" was taken out");
+	});
+}
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function postedQ(req,res){
+	
+        res.json("JSON req.body._id:   "+ req.body._id);
+  var postQ = new db.Quote
+    ({
+    _id: req.body._id,
+    quote: req.body.quote,
+    author: req.body.author
+      });
       
-//     postQ.save(function(err, q){
-//           res.json(q);
-//   });
-// }
+    postQ.save(function(err, q){
+          res.json(q);
+  });
+}
 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//module.exports.deleteQ = deleteQ;
-// module.exports.postQ = postQ;
+module.exports.deleteQ = deleteQ;
+module.exports.postedQ = postedQ;
 
+module.exports.quotes_FindOne = quotes_FindOne;
 module.exports.homepage = homepage;
 module.exports.quotes_index = quotes_index;
 module.exports.getRandom = getRandom;

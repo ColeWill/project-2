@@ -14,8 +14,8 @@ var randoQ;
 		// go into the backend and tell it to request from quotes api
 			.done(function(data){
 				console.log(data); 
-				$('.qbox').append(quote);
-				$('.abox').append(author);
+				$('.qbox').append(data.quote);
+				$('.abox').append(data.author);
 			});
 	});
 
@@ -24,16 +24,17 @@ var randoQ;
 		var q =  $('.qbox').text();
 		var a =  $('.abox').text();
 		
-		///saves quotes successfully to the db
+		///saves quotes to the db
 		$.ajax({
 		
 			url:'http://localhost:3000/api/quotes',
 			type: 'POST',
 			dataType:"json",
-			data: {_id: 16, quote: q, author: a},
+			data: { quote: q, author: a},
 			ContentType:"application/json"
             }).done(function(res){
 			console.log(res);
+			//get all quotes from db
 			$.get('/api/quotes', function(res){
 				console.log(res);
 				res.forEach(function(res){
