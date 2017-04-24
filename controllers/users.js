@@ -23,7 +23,7 @@ function getLogin(request, response, next) {
 
 // POST /login 
 function postLogin(request, response, next) {
-    var loginProperty = passport.authenticate('local-loggins', {
+    var loginProperty = passport.authenticate('local-login', {
       successRedirect : '/',
       failureRedirect : '/login',
       failureFlash : true
