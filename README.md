@@ -16,7 +16,7 @@ After that I incorporated all of passports and functionality into my full stack 
 ##![wireframe2](http://i.imgur.com/0u3ugs8.png)
 
 
-##My App
+## My App
 
 It is a random quote generator and saver.  Users can login, and get random Quotes from famous authors, politicians, and great minds with the click of a button. 
 
@@ -36,7 +36,7 @@ Node.js runs all of the Javascript files on the backend, which allows me to crea
 Passport allows user authentication (login/logout) functionality.
 
 
-##Challenges
+## Challenges
 
 Passport is basically a fullstack app on its own.  It requires setting up a database, RESTful routes, connecting with mongoose, running JavaScript files with Node.js, and several Node packages unique to itself as well.  
 	Integrating it into my working fullstack app was very difficult for me and took almost 10 hours to complete.
