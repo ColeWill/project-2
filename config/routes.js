@@ -18,9 +18,14 @@ function authenticatedUser(req, res, next) {
   // Otherwise the request is always redirected to the home page
   res.redirect('/');
 }
+
+
 // homepage
 router.route('/')
   .get(staticsController.home);
+
+// router.route('/')
+//   .get(usersController.getLogin);
 
 ////////////////////////////////////////////////// PASSPORT
 router.route('/signup')

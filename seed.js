@@ -11,21 +11,16 @@ quotesArray.push({
 quotesArray.push({
               
               quote: 'Y.O.L.O.',
-              author: 'UNKNOWN'
+              author: 'Unknown'
               
             });
 quotesArray.push({
              
               quote: "Don't Quote me on this...",
-              author: 'UNKONW'
+              author: 'Unknown'
               
             });
-quotesArray.push({
-             
-              quote: 'Computers are not very Smart...',
-              author: 'C. Williams'
-              
-            });
+
 
 	db.Quote.remove({}, function(err,albums){
 		if(err){

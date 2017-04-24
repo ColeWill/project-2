@@ -1,7 +1,12 @@
-# project-2
+### Project-2
 
-#Timeline
-4.20 1.45pm seed file is working and connecting to mongo db
+I started this project by building my backend first.  I built my server and routes and configured my database, and then a made a working prottype that could receive and display info that I wanted.
+
+Next I built a fullstack app that had user authentication with passport.  
+
+After that I incorporated all of passports and functionality into my full stack app.
+
+
 ##![Trello]:https://trello.com/b/hpwPDMRY/project-2
 ##![drawing1](http://i.imgur.com/nKXrjdu.jpg?1)
 ##![drawing 2](http://i.imgur.com/rOkzpHl.jpg)

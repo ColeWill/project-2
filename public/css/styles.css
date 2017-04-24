@@ -1,18 +1,39 @@
 .qbox{
-	min-height: 200px;
+	min-height: 150px;
 	min-width: 300px;
 	border: 3px solid blue;
-	color: green;
+	color: black;
+	font-family: 'Asar', sans-serif;
+	font-size: 30px;
+	padding-left:15px;
 }
 .abox{
-	height: 50px;
-	width: 150px;
+	min-height: 50px;
+	max-height: 80px;
+	min-width: 200px;
+	max-width: 300px;
 	border: 3px solid green;
+	font-family: 'Asar', serif;
+	font-size: 15px;
+	padding-left:15px;
+	padding-top:10px;
 }
 .saveBox{
-	min-height: 200px;
+	min-height: 150px;
 	min-width: 300px;
 	border: 3px solid grey;
 	color: black;
 }
-
+.saveAuthor{
+	height: 50px;
+	width: 150px;
+	border: 3px solid green;
+}
+#container-fluid{
+	background-image:url();
+	background-repeat: no-repeat;
+	background-position:center;
+	background-size: cover;
+	width:100%;
+	height:100%;
+}

@@ -40,7 +40,8 @@ function getLogout(request, response, next) {
 
 // Restricted page
 function secret(request, response, next){
-  response.json({secret: "Woooah secret!"});
+  response.render('secret.ejs', {message: request.flash('Thanks for Logging on!')});
+  
 }
 module.exports.getLogin = getLogin;
 module.exports.postLogin = postLogin;
