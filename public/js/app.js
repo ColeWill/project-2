@@ -62,7 +62,7 @@ var randoQ;
 		var a =  $('.abox').text();
 		$.ajax({
 		
-			url:'http://localhost:3000/api/quotes',
+			url:'api/quotes',
 			type: 'POST',
 			dataType:"json",
 			data: { quote: q, author: a},
@@ -99,7 +99,7 @@ var randoQ;
 		};
 		$.ajax({
 		
-			url:'http://localhost:3000/api/quotes',
+			url:'api/quotes',
 			type: 'POST',
 			data: newObj
 			
@@ -116,7 +116,7 @@ var randoQ;
 		var urlID = $('#delRoute').val();
 		console.log(urlID);
 		$.ajax({
-			url:'http://localhost:3000/api/quotes/'+urlID,
+			url:'api/quotes/'+urlID,
 			type:'DELETE'
 			
 
