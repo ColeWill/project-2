@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 var express      = require('express');
 var app          = express();
 var mongoose     = require('mongoose');
@@ -7,6 +9,8 @@ var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
+
+console.log(process.env.APIKEY);
 
 module.exports.Quote = require('./models/quote.js');
 

@@ -1,7 +1,7 @@
 var db = require('../models'); // CONNECT TO MONGOOSE !!! + pull in my models
 //change ./models to ../models because up one level
-
-var apiKey= require('../env/api_env.js');
+// var apiKey = require('dotenv').config();
+var apiKey= process.env.APIKEY;
 var request = require('request');
 var bodyParser = require('body-parser');
 
