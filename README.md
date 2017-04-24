@@ -19,7 +19,7 @@ After that I incorporated all of passports and functionality into my full stack 
 
 It is a random quote generator and saver.  Users can login, and get random Quotes from famous authors, politicians, and great minds with the click of a button. 
 
-#Users Can...
+# Users Can...
 -Get New Random Quotes
 -See all quotes in the database displayed on the page
 -Create their Own new quote and save it in the database
