@@ -5,8 +5,8 @@ I started this project by building my backend first.  I built my server and rout
 Next I built a fullstack app that had user authentication with passport.  
 
 After that I incorporated all of passports and functionality into my full stack app.
-
-
+##
+##![Link to Heroku]:https://heroku.com/apps/protected-springs-84894
 ##![Trello]:https://trello.com/b/hpwPDMRY/project-2
 ##![drawing1](http://i.imgur.com/nKXrjdu.jpg?1)
 ##![drawing 2](http://i.imgur.com/rOkzpHl.jpg)
@@ -49,3 +49,5 @@ Successfully connecting routes on the backend, linking up pages, installing and 
 Unsolved Problems
 
 Saving session data, so that individual users have their own collection in the Database.  This would allow them to have a unique collection of qoutes. 
+
+Want to remove pink flash message bar from the top of the login page
