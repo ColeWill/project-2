@@ -74,6 +74,26 @@ router.post('/api/quotes', function postQ(req,res){
  router.route('/api/quotes/:id')
   .get(qControllers.quotes_FindOne);
 
+// _+_+_+_+_+_+_+_+_+_+_+_++_+_+_++_+_+_+_+_+ Put/Patch //working
+ router.put('/api/quotes/:id', function(req,res){
+ 
+  var putID = req.params.id;
+  
+  db.Quote.findOne({_id: putID}, function(err, quote){
+     
+      quote._id = req.body._id;
+      quote.author = req.body.author;
+      quote.quote = req.body.quote;
+
+      quote.save(function(err, saveQ){
+        if (err){
+          res.json("err");
+        }
+        res.json(saveQ);
+      });
+  });
+});
+
   //-------------- DELETE ----------------------- Working
 router.route('/api/quotes/:id')
   .delete(qControllers.deleteQ);

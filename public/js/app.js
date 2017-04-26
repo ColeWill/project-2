@@ -10,7 +10,7 @@ function displayALL(){
 			var auth = res.author;
 			var q = res.quote;
 			var id = res._id;
-			$('.dbq').append(i+2+") "+"'"+q+"'<br>  -- "+auth+"<br>"+"<span class='idclass'>"+id+"</span><br><br>");
+			$('.dbq').append((i+1)+") "+"'"+q+"'<br>  -- "+auth+"<br>"+"<span class='idclass'>"+id+"</span><br><br>");
 			$('.idclass').css("color","#e3ecf9");	
 		});
 	});
@@ -68,7 +68,7 @@ var randoQ;
 			data: { quote: q, author: a},
 			ContentType:"application/json"
             }).done(function(res){
-            	
+            
 			$('.dbq').append("'"+q+"'<br>  -- "+a+"<br>"+"<span class='idclass'>"+res._id+"</span><br><br>");
 			$('.idclass').css("color","#e3ecf9");	
 				// });
@@ -126,6 +126,32 @@ var randoQ;
 			$('#delRoute').val("");
 		});
 	});
+
+	// _+ _+ _+ _+ _+ _+ _+ _+ _+ _+ _+ _+ _+ _+ _+ _+ Update a quote
+
+	// $('#put').on('click', function(){
+	// 	event.preventDefault();
+	// 	console.log("put click");
+		
+	// 	var urlID = $('#delRoute').val();
+		
+	// 	var newQ = $('#saveQuote').val();
+	// 	var newAuthor = $('#newAuthor').val();
+
+	// 	var putQ = {
+	// 		quote: newQ,
+	// 		author: newAuth
+	// 	};
+
+	// 	$.ajax({
+	// 		url:'api/quotes/'+urlID,
+	// 		type:'PUT',
+	// 		data: putQ
+	// 		}).done(function(){
+	// 		console.log("Put: "+ putQ);
+	
+	// 		});
+	// 	});
 
 
 
