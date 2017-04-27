@@ -75,27 +75,27 @@ router.route('/api/quotes/getRandom')
 // findOne
 ////////////////////////////////////////////////////
  router.route('/api/quotes/:id')
-  .get(qControllers.quotes_FindOne);
-
+  .get(qControllers.quotes_FindOne)
+  .put(qControllers.putQ);
 // _+_+_+_+_+_+_+_+_+_+_+_++_+_+_++_+_+_+_+_+ Put/Patch //working
- router.put('/api/quotes/:id', function(req,res){
+ // router.put('/api/quotes/:id', function putQ(req,res){
 
-  var putID = req.params.id;
-  res.json(putID);
-  db.Quote.findOne({_id: putID}, function(err, quote){
+ //  var putID = req.params.id;
+ //  res.json(putID);
+ //  db.Quote.findOne({_id: putID}, function(err, quote){
      
-      quote._id = req.body._id;
-      quote.author = req.body.author;
-      quote.quote = req.body.quote;
+ //      quote._id = req.body._id;
+ //      quote.author = req.body.author;
+ //      quote.quote = req.body.quote;
 
-      quote.save(function(err, saveQ){
-        if (err){
-          res.json("err");
-        }
-        res.json(saveQ);
-      });
-  });
-});
+ //      quote.save(function(err, saveQ){
+ //        if (err){
+ //          res.json("err");
+ //        }
+ //        res.json(saveQ);
+ //      });
+ //  });
+
 
   //-------------- DELETE ----------------------- Working
 router.route('/api/quotes/:id')

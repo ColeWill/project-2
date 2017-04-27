@@ -24,6 +24,24 @@ function quotes_index(req,res){
 	});
 }
 
+ function putQ(req,res){
+
+  var putID = req.params.id;
+  res.json(putID);
+  db.Quote.findOne({_id: putID}, function(err, quote){
+     
+      quote._id = req.body._id;
+      quote.author = req.body.author;
+      quote.quote = req.body.quote;
+
+      quote.save(function(err, saveQ){
+        if (err){
+          res.json("err");
+        }
+        res.json(saveQ);
+      });
+  });
+}
 
 // get Random Quote From the API
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -83,6 +101,7 @@ function postedQ(req,res){
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 module.exports.postedQ = postedQ;
+module.exports.putQ  = putQ;
 // module.exports.homepage = homepage;
 
 module.exports.deleteQ = deleteQ;
