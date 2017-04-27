@@ -1,5 +1,4 @@
 require('dotenv').config();
-
 var express      = require('express');
 var app          = express();
 var mongoose     = require('mongoose');
@@ -17,6 +16,7 @@ module.exports.Quote = require('./models/quote.js');
 //mongoose.connect('mongodb://localhost/quotes-login'); 
 
 
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));//we use express to parse url query strings that come in as requests
 app.use(bodyParser.json());// we use express to parse  json obect requests
 

@@ -49,7 +49,7 @@ function quotes_index(req,res){
 // i request with node instead of ajax calling on front end
 //cause i can use my apiKey
 function getRandom(req, res){
-
+console.log('this route has been hit');
  	request('https://quotes.rest/quote/random.json?api_key='+apiKey, function(err, response, body){
  		///this send stuff to the front end...
  		var parsedQ  = JSON.parse(body);
