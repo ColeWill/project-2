@@ -66,10 +66,10 @@ function deleteQ(req,res){
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function postedQ(req,res){
 	
-        res.json("JSON req.body._id:   "+ req.body._id);
-  var postQ = new db.Quote
+    // res.json("JSON req.body._id:   "+ req.body._id);
+  	var postQ = new db.Quote
     ({
-    _id: req.body._id,
+    
     quote: req.body.quote,
     author: req.body.author
       });
@@ -82,7 +82,7 @@ function postedQ(req,res){
 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// module.exports.postedQ = postedQ;
+module.exports.postedQ = postedQ;
 // module.exports.homepage = homepage;
 
 module.exports.deleteQ = deleteQ;

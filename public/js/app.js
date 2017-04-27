@@ -129,29 +129,37 @@ var randoQ;
 
 	// _+ _+ _+ _+ _+ _+ _+ _+ _+ _+ _+ _+ _+ _+ _+ _+ Update a quote
 
-	// $('#put').on('click', function(){
-	// 	event.preventDefault();
-	// 	console.log("put click");
+	$('#put').on('click', function(){
+		event.preventDefault();
+		console.log("put click");
 		
-	// 	var urlID = $('#delRoute').val();
+		var urlID = $('#delRoute').val();
 		
-	// 	var newQ = $('#saveQuote').val();
-	// 	var newAuthor = $('#newAuthor').val();
+		var newQ = $('#saveQuote').val();
+		var newAuthor = $('#newAuthor').val();
 
-	// 	var putQ = {
-	// 		quote: newQ,
-	// 		author: newAuth
-	// 	};
+		console.log("urlID: "+urlID);
+		console.log("newQ: "+newQ);
+		console.log("newAuthor: "+newAuthor);
 
-	// 	$.ajax({
-	// 		url:'api/quotes/'+urlID,
-	// 		type:'PUT',
-	// 		data: putQ
-	// 		}).done(function(){
-	// 		console.log("Put: "+ putQ);
+		var putQ = {
+			_id: urlID,
+			quote: newQ,
+			author: newAuthor
+
+		};
+		console.log("obj: " + putQ);
+		$.ajax({
+			url:'api/quotes/'+urlID,
+			type:'PUT',
+			data: putQ
+			}).done(function(){
+			console.log("Put: "+ putQ);
+			$('delRoute').empty();
+			getALL();
 	
-	// 		});
-	// 	});
+			});
+		});
 
 
 

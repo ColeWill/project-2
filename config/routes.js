@@ -52,22 +52,25 @@ router.route('/api/quotes/getRandom')
 
   // index -- get all//////////////////
  router.route('/api/quotes')
-  .get(qControllers.quotes_index);
+  .get(qControllers.quotes_index)
+  .post(qControllers.postedQ);
 
 //WORKING creates a new quote  +++++++++++++++  working
-router.post('/api/quotes', function postQ(req,res){
-        res.json("JSON req.body._id:   "+ req.body._id);
-  var postQ = new db.Quote
-    ({
+// router.post('/api/quotes', function postQ(req,res){
+//         res.json("JSON req.body._id:   "+ req.body._id);
+//   var postQ = new db.Quote
+//     ({
     
-    quote: req.body.quote,
-    author: req.body.author
-      });
+//     quote: req.body.quote,
+//     author: req.body.author
+//       });
       
-    postQ.save(function(err, q){
-          res.json(q);
-  });
-});
+//     postQ.save(function(err, q){
+//           res.json(q);
+//   });
+// });
+
+
 
 // findOne
 ////////////////////////////////////////////////////
@@ -76,9 +79,9 @@ router.post('/api/quotes', function postQ(req,res){
 
 // _+_+_+_+_+_+_+_+_+_+_+_++_+_+_++_+_+_+_+_+ Put/Patch //working
  router.put('/api/quotes/:id', function(req,res){
- 
+
   var putID = req.params.id;
-  
+  res.json(putID);
   db.Quote.findOne({_id: putID}, function(err, quote){
      
       quote._id = req.body._id;
